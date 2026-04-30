@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>100 Sales Interview Questions — Prep Like a Pro</title>
+  <meta name="description" content="100 real sales interview questions with sample answers and the reasoning behind each one. Practice the way you'll be tested. From Now Hiring Salespeople by Steve Richey.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* Page-specific styles */
+    .decoder-strip {
+      background: var(--color-black);
+      color: var(--color-white);
+      padding: 56px var(--section-pad-x);
+    }
+    .decoder-strip .h2 { color: var(--color-white); }
+    .decoder-strip p { color: var(--color-grey-500); }
+    .decoder-steps {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1px;
+      background: #333;
+      border: 1px solid #333;
+      margin-top: 32px;
+    }
+    .decoder-step {
+      background: var(--color-black);
+      padding: 24px 16px;
+      text-align: center;
+    }
+    .decoder-step-letter {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 56px;
+      line-height: 1;
+      color: var(--color-orange);
+    }
+    .decoder-step-label {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--color-white);
+      margin-top: 12px;
+    }
+
+    /* Sticky filter bar */
+    .filter-section {
+      position: sticky;
+      top: 64px;
+      z-index: 50;
+      background: var(--color-white);
+      border-bottom: 1px solid var(--color-grey-300);
+      padding: 16px var(--section-pad-x);
+    }
+    .filter-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+    .filter-label {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 12px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--color-grey-500);
+      margin-right: 4px;
+    }
+    .filter-btn {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 8px 14px;
+      border: 1px solid var(--color-grey-300);
+      border-radius: 0;
+      background: var(--color-white);
+      color: var(--color-black);
+      cursor: pointer;
+      transition: background 0.12s ease, color 0.12s ease, border-color 0.12s ease;
+    }
+    .filter-btn:hover { border-color: var(--color-black); }
+    .filter-btn.is-active {
+      background: var(--color-black);
+      color: var(--color-white);
+      border-color: var(--color-black);
+    }
+    .filter-count {
+      margin-left: auto;
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: var(--color-grey-500);
+    }
+
+    /* Question cards */
+    .questions-section { padding: 48px var(--section-pad-x); }
+    .questions-list {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .qc {
+      border: 1px solid var(--color-grey-300);
+      background: var(--color-white);
+      padding: 24px 28px;
+      display: grid;
+      grid-template-columns: 56px 1fr;
+      gap: 20px;
+      align-items: start;
+    }
+    .qc.is-hidden { display: none; }
+    .qc-num {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 32px;
+      color: var(--color-orange);
+      line-height: 1;
+      padding-top: 4px;
+    }
+    .qc-body { min-width: 0; }
+    .qc-cat {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--color-grey-500);
+      margin-bottom: 8px;
+    }
+    .qc-q {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 22px;
+      line-height: 1.25;
+      color: var(--color-black);
+      letter-spacing: -0.005em;
+    }
+    .qc-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+    .qc-toggle {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 8px 16px;
+      border: 1px solid var(--color-black);
+      background: var(--color-white);
+      color: var(--color-black);
+      border-radius: 0;
+      cursor: pointer;
+      transition: background 0.12s ease, color 0.12s ease;
+    }
+    .qc-toggle:hover { background: var(--color-grey-100); }
+    .qc-toggle.is-open {
+      background: var(--color-black);
+      color: var(--color-white);
+    }
+    .qc-reveal {
+      display: none;
+      margin-top: 16px;
+      border-left: 4px solid var(--color-orange);
+      background: var(--color-grey-100);
+      padding: 16px 20px;
+    }
+    .qc-reveal.is-open { display: block; }
+    .qc-reveal-label {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--color-orange);
+      margin-bottom: 8px;
+    }
+    .qc-reveal-text {
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--color-grey-600);
+    }
+    .qc-reveal-text strong { color: var(--color-black); }
+
+    .empty-state {
+      max-width: var(--max-width);
+      margin: 48px auto;
+      text-align: center;
+      padding: 48px;
+      border: 1px solid var(--color-grey-300);
+      color: var(--color-grey-500);
+    }
+
+    @media (max-width: 720px) {
+      .decoder-steps { grid-template-columns: repeat(5, 1fr); gap: 1px; }
+      .decoder-step { padding: 16px 6px; }
+      .decoder-step-letter { font-size: 36px; }
+      .decoder-step-label { font-size: 11px; }
+      .qc { grid-template-columns: 40px 1fr; gap: 12px; padding: 18px 18px; }
+      .qc-num { font-size: 24px; }
+      .qc-q { font-size: 18px; }
+      .filter-section { padding: 12px var(--section-pad-x); top: 64px; }
+      .filter-count { width: 100%; margin-left: 0; margin-top: 4px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========== Nav ========== -->
+  <nav class="nav" style="position:sticky;top:0;z-index:100;background:#FFFFFF;border-bottom:1px solid #E0E0E0;height:64px;display:flex;align-items:center;padding:0 48px;">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">Now Hiring Salespeople</a>
+      <button class="nav-toggle" aria-expanded="false" aria-label="Toggle navigation">Menu</button>
+      <ul class="nav-links">
+        <li><a href="index.html">The Book</a></li>
+        <li><a href="prep.html">Prep Like a Pro</a></li>
+        <li><a href="hire-right.html">Hire Right</a></li>
+        <li><a href="speaking.html">Speaking</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="index.html#order" class="btn btn-cta" style="padding:10px 20px;font-size:12px;">Order the Book</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ========== Hero ========== -->
+  <section class="hero">
+    <div class="hero-grid" style="grid-template-columns:1fr;">
+      <div>
+        <span style="display:inline-block;background:#E8300A;color:#fff;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:13px;padding:6px 14px;letter-spacing:0.18em;text-transform:uppercase;margin-bottom:20px;">Bonus · Web Exclusive</span>
+        <p class="eyebrow">100 Questions Between You and the Offer</p>
+        <h1 class="hero-title">Practice<br>Like You Mean It.</h1>
+        <p class="hero-subtitle">Every question on this page is one a sales hiring manager actually asks. Read it. Answer out loud. Then reveal the sample answer and the reasoning behind why they're asking. The reps who land the offer aren't more talented — they're more prepared.</p>
+        <p class="body mt-6" style="color:#888;font-size:15px;">A free companion tool to <em>Now Hiring Salespeople</em>. Available only here — not in the book.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== Decoder Framework Strip ========== -->
+  <section class="decoder-strip">
+    <div class="section-inner">
+      <p class="eyebrow">The Decoder Framework</p>
+      <h2 class="h2">Every Question Has Layers. Answer Them All.</h2>
+      <p class="body-large mt-6" style="color:#888;max-width:680px;">Most candidates answer the question that was asked. The candidates who get the offer answer the problem the manager is trying to solve. Run every answer through this five-step pattern.</p>
+      <div class="decoder-steps">
+        <div class="decoder-step">
+          <div class="decoder-step-letter">D</div>
+          <div class="decoder-step-label">Decode</div>
+        </div>
+        <div class="decoder-step">
+          <div class="decoder-step-letter">R</div>
+          <div class="decoder-step-label">Reframe</div>
+        </div>
+        <div class="decoder-step">
+          <div class="decoder-step-letter">A</div>
+          <div class="decoder-step-label">Answer</div>
+        </div>
+        <div class="decoder-step">
+          <div class="decoder-step-letter">P</div>
+          <div class="decoder-step-label">Prove</div>
+        </div>
+        <div class="decoder-step">
+          <div class="decoder-step-letter">C</div>
+          <div class="decoder-step-label">Close</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== Filter bar ========== -->
+  <section class="filter-section" id="filters">
+    <div class="filter-inner">
+      <span class="filter-label">Filter:</span>
+      <button class="filter-btn is-active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="general">General</button>
+      <button class="filter-btn" data-filter="prospecting">Prospecting</button>
+      <button class="filter-btn" data-filter="ethic">Work Ethic</button>
+      <button class="filter-btn" data-filter="coaching">Coachability</button>
+      <button class="filter-btn" data-filter="professional">Professionalism</button>
+      <button class="filter-btn" data-filter="drive">Drive</button>
+      <button class="filter-btn" data-filter="adaptability">Adaptability</button>
+      <button class="filter-btn" data-filter="closing">Closing</button>
+      <span class="filter-count" id="filter-count">100 questions</span>
+    </div>
+  </section>
+
+  <!-- ========== Questions list ========== -->
+  <section class="questions-section">
+    <div class="questions-list" id="questions-list"><!-- populated by JS --></div>
+    <div class="empty-state" id="empty-state" style="display:none;">No questions in that category.</div>
+  </section>
+
+  <!-- ========== End CTA ========== -->
+  <section class="section section-grey">
+    <div class="section-inner text-center">
+      <p class="eyebrow">Want the Whole Playbook?</p>
+      <h2 class="h2">The Book Goes Deeper Than the Practice Tool.</h2>
+      <p class="body-large mt-6" style="max-width:640px;margin-left:auto;margin-right:auto;">The Decoder Framework, the five hiring manager personas, the closing patterns, and the 90-day plan for after you get the job — all in <em>Now Hiring Salespeople</em>.</p>
+      <div class="btn-row" style="justify-content:center;margin-top:32px;">
+        <a href="index.html#order" class="btn btn-cta">Order the Book</a>
+        <a href="index.html" class="btn btn-secondary">Read More About It</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== Footer ========== -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">Now Hiring Salespeople</div>
+        <a href="https://www.linkedin.com/company/nowhiringsalespeople/" target="_blank" rel="noopener noreferrer" style="display:inline-block;margin-top:6px;font-family:'Inter',sans-serif;font-size:13px;color:#888;text-decoration:none;">Follow on LinkedIn →</a>
+      </div>
+      <ul class="footer-links">
+        <li><a href="index.html">The Book</a></li>
+        <li><a href="prep.html">Prep</a></li>
+        <li><a href="hire-right.html">Hire Right</a></li>
+        <li><a href="speaking.html">Speaking</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+      <div class="footer-copy">© 2026 Steve Richey. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script src="js/site.js"></script>
+  <script>
+    // ========== 100 Questions Data ==========
+    const CATEGORIES = {
+      general: 'General',
+      prospecting: 'Prospecting & Activity',
+      ethic: 'Work Ethic & Discipline',
+      coaching: 'Learning & Coachability',
+      professional: 'Professionalism & Reliability',
+      drive: 'Drive & Career Orientation',
+      adaptability: 'Adaptability & Judgement',
+      closing: 'Closing Readiness & Fit'
+    };
+
+    const QUESTIONS = [
+      // General (1-10)
+      { c: 'general', q: `"What made you apply for an outside sales role specifically?"`, a: `I like roles where effort directly impacts results. Outside sales seems performance driven, competitive, and people focused, which fits how I work best.`, w: `Managers want to confirm motivation for commission based sales and your ability to thrive in self directed work.` },
+      { c: 'general', q: `"Tell me about a time you had to initiate something without being told."`, a: `In college, I created a group study schedule before exams because no one else stepped up. It improved participation and test results.`, w: `They are trying to determine if you are a self starter, which is critical to sales.` },
+      { c: 'general', q: `"How do you feel about spending most of your day on your own?"`, a: `I'm comfortable working independently as long as I know the expectations and goals.`, w: `Outside reps are often unsupervised. They have to trust you to go do the work without holding your hand.` },
+      { c: 'general', q: `"What does 'hard work' look like to you?"`, a: `To me, hard work is the consistent effort even when results aren't immediate. It's about doing the activity needed to succeed.`, w: `Sales success is completely dependent on sales activity and your willingness to put in the work.` },
+      { c: 'general', q: `"Have you ever had a job that required persistence?"`, a: `During a volunteer fundraising campaign, we had to contact many potential donors, and most didn't respond right away. I kept following up respectfully and stayed committed to the goal. That persistence helped us reach our target and taught me the importance of consistent effort.`, w: `Persistence predicts prospecting success.` },
+      { c: 'general', q: `"What motivates you more, recognition or money?"`, a: `Both matter, but money would be the biggest motivator.`, w: `They are trying to determine if there's alignment between your goals and their incentives.` },
+      { c: 'general', q: `"Describe a time you handled rejection."`, a: `The first time I applied for a leadership position I didn't get it. I asked for feedback, worked my tail off, and then reapplied the next semester successfully.`, w: `Are you resilient enough to stick with things even after an initial rejection?` },
+      { c: 'general', q: `"How competitive are you?"`, a: `Very. I enjoy being measured against others and improving against benchmarks.`, w: `Sales as a whole is built on competition. You need to be competitive to thrive in sales. That competitive drive doesn't need to be external — some great salespeople are internally driven by competing against their own numbers — but you still have to be a competitor.` },
+      { c: 'general', q: `"What kind of environment helps you perform best?"`, a: `Clear goals, accountability, and the ability to control outcomes through effort.`, w: `This is a consistency question to see if you're still aligned with a culture driven by performance.` },
+      { c: 'general', q: `"What do you know about our company?"`, a: `You provide B2B services that help businesses operate more efficiently, and growth depends on new customer acquisition and strong service relationships to retain business.`, w: `They are checking to see if you are prepared for this interview and have done your research. It's an indicator that you'll prepare for your meetings with prospects.` },
+
+      // Prospecting & Activity Tolerance (11-20)
+      { c: 'prospecting', q: `"How comfortable are you starting conversations with strangers?"`, a: `Very comfortable. I see it as an opportunity to learn and connect.`, w: `They are going to ask you to do a large number of cold calls — you have to be comfortable talking to strangers.` },
+      { c: 'prospecting', q: `"Have you ever had to sell an idea?"`, a: `I convinced classmates to join a volunteer event by explaining what was in it for them and how it would impact their resume and the benefits of serving the particular organization.`, w: `Everyone sells something, but salespeople know when they are selling. Even without sales experience, you've sold ideas — you just have to realize it.` },
+      { c: 'prospecting', q: `"How would you approach a business owner who seems busy?"`, a: `I'd be respectful, concise, and ask if now was a good time to connect or if a later time would work for them.`, w: `Do you understand how to conduct yourself like a professional?` },
+      { c: 'prospecting', q: `"What would you do if someone said, 'Not interested'?"`, a: `I'd acknowledge it politely and ask if there was a better time, or a reason our conversation wasn't relevant to them.`, w: `They are trying to get an idea of what your objection-handling instincts are.` },
+      { c: 'prospecting', q: `"How do you handle uncomfortable situations?"`, a: `I stay calm, listen, and focus on what people are really saying. That usually helps take the uncomfortable out of the situation, at least on my end.`, w: `Sales conversations can be tough. Staying calm under pressure shows you can handle the stress.` },
+      { c: 'prospecting', q: `"Would you be willing to make 20 to 40 (or 50 to 100 for inside sales) outreach attempts per day?"`, a: `Yes. I completely understand that activity is what's going to drive opportunity.`, w: `They want to know if you understand what you're signing up for and whether you're willing to handle the volume it takes to be successful.` },
+      { c: 'prospecting', q: `"What would you do if you had a slow day with no meetings?"`, a: `I'd prospect like crazy to fill my funnel and follow up with other deals in my pipeline.`, w: `This is another check on your ability to manage yourself and your time.` },
+      { c: 'prospecting', q: `"How would you prepare for a day of client visits?"`, a: `I'd plan my schedule, work through my CRM notes, research the prospect in more detail, and set objectives for each meeting.`, w: `They want to know if you have an instinct for what it takes to be successful and whether you can organize your thoughts quickly.` },
+      { c: 'prospecting', q: `"Are you comfortable walking into businesses unannounced?"`, a: `Yes, I have no problem with that at all.`, w: `They don't want to hear that you need to be ready to go cold call. Don't talk about "when I'm trained" — they want to know if the answer is yes. Any other answer sounds like a no.` },
+      { c: 'prospecting', q: `"What would success in your first year look like?"`, a: `Success would look like my ability to learn quickly, hit targets, and continuously build my pipeline.`, w: `They want to know that your goals aren't just "get a job" but to thrive in the role they are offering. They're looking to see if you understand what success looks like.` },
+
+      // Work Ethic & Discipline (21-30)
+      { c: 'ethic', q: `"Describe a time you had to stick to a schedule."`, a: `Balancing classes, activities, and working my way through school taught me strict time management.`, w: `Outside sales reps must be violently protective of their time. Prospecting, follow up, meetings, phone blocks, one-on-ones, and managing a territory require you to be disciplined.` },
+      { c: 'ethic', q: `"How do you prioritize your tasks?"`, a: `I've learned to focus on high-impact activities first and then prioritize my work accordingly.`, w: `Revenue activities should always come first — they want to see if you understand that.` },
+      { c: 'ethic', q: `"Are you willing to work outside of normal hours?"`, a: `Yes — especially if it supports results.`, w: `They aren't asking if you will, they are asking if you're willing. Be aware though: customer schedules and service team schedules fluctuate heavily, and your schedule will have to as well.` },
+      { c: 'ethic', q: `"What would you do if you were behind your goals?"`, a: `I'd increase activity and seek feedback. Preferably I'd get time in the field with a manager as soon as possible so they can diagnose and I can adjust.`, w: `They want to know that you default to action and seek coaching. Owning your problem is one thing, but being willing to ask for help buys you time and consideration.` },
+      { c: 'ethic', q: `"How do you stay organized?"`, a: `I use lists to prioritize, calendars to keep it straight, and I plan my day ahead of time so there's no lag in executing my goals for the day.`, w: `They are checking to see if you already have structure and discipline in place.` },
+      { c: 'ethic', q: `"Describe a time when you met a tough deadline."`, a: `During my final semester, my team had a major capstone project due that counted for nearly half our grade. About two weeks before the deadline, one team member dropped the class, leaving us behind schedule. I took the initiative to reorganize the workload, created a shared timeline with daily checkpoints, and volunteered to handle the most time-sensitive portion of the project. I also scheduled evening check-ins to keep everyone accountable and solve problems as they surfaced. We finished a full day early, delivered one of the strongest presentations, and received an A. That taught me how to stay calm under pressure, prioritize what matters most, and keep a team focused when time is tight.`, w: `They are asking if you can execute under the pressure of the role.` },
+      { c: 'ethic', q: `"What habits help you succeed?"`, a: `The number one habit that's helped me succeed is consistency. Just showing up. Once I got that down it helped me be more prepared and follow through.`, w: `Predictable behaviours win the day in sales — they want to know what your predictable behaviours are.` },
+      { c: 'ethic', q: `"How do you handle multiple responsibilities?"`, a: `The best way that works for me is to break them down into manageable tasks and then prioritize them accordingly.`, w: `The amount of things you have to juggle as a sales rep can overwhelm salespeople if they don't know how to digest the work. They want to know you aren't going to be overwhelmed.` },
+      { c: 'ethic', q: `"Do you prefer structure or flexibility?"`, a: `I like structure when it comes to goals and measurables, but I really enjoy the flexibility in how things get executed. I want to know how to win, but I like the freedom of going outside the box.`, w: `You will never be given more freedom in a role than as an outside salesperson. They want to understand if you can balance the freedom and still keep your goals and metrics in front of you.` },
+      { c: 'ethic', q: `"How do you stay focused without supervision?"`, a: `Regardless of the degree of supervision, there are still so many things to track when it comes to progress against goals.`, w: `This is a consistency question to see if you answer similarly about supervision. They want to know they can trust you to be out in the field and stay on task.` },
+
+      // Learning & Coachability (31-40)
+      { c: 'coaching', q: `"How do you handle feedback?"`, a: `My goal is to get better. I don't have an ego tied to what or how I'm doing. I want to know the best way to accomplish the tasks to help me reach my goals.`, w: `Coachability is huge for new hires. It's one of the greatest assets you can bring to a team when you're just getting started. They aren't paying for your opinion — they're paying you to learn.` },
+      { c: 'coaching', q: `"Tell me about something new you learned recently."`, a: `Lately I've started learning more about how professional salespeople structure discovery conversations. I listened to sales podcasts and watched videos on asking open-ended questions that uncover real business problems instead of jumping straight into a pitch. It showed me that selling is less about talking and more about understanding, which is something I'm continuing to work on.`, w: `They want to know if you have a growth mindset and are working on getting better. Curious people make great salespeople and coaches love curious reps.` },
+      { c: 'coaching', q: `"How do you learn best?"`, a: `I learn by practicing, doing, studying, and getting feedback.`, w: `So many people say "I learn by doing," but a sales manager has no idea how long you have to do things to learn something. Cutting out feedback, practicing, or other resources says you just want to do it by yourself. That's a rep saying they don't need coaching.` },
+      { c: 'coaching', q: `"What skills are you currently working on?"`, a: `I'm always working on being a more effective communicator, but the one I'm trying to work on more now is my business knowledge. If I can think like a business owner I can better understand their perspective and ask better questions. I am trying to learn how to make better business cases to make decisions easier.`, w: `No one wants to coach someone who thinks they are a completed product. Sales leaders are looking for people who are always trying to make themselves better.` },
+      { c: 'coaching', q: `"How do you respond when corrected?"`, a: `My ego isn't tied to the "how" I get things done. It's tied to being the best. Ego only stands in the way of that.`, w: `This is another ego check to see if your ego is bigger than reaching the goal, or whether you're willing to be adaptable in order to succeed.` },
+      { c: 'coaching', q: `"Describe a time you improved after failing."`, a: `During my sophomore year, I did poorly on the first major exam in a finance class — well below the class average. It was obvious my approach didn't work, and I wasn't going to let myself fail. I met with my professor to understand exactly what I was doing wrong. I realized I wasn't applying the concepts, I was memorizing them. I changed my approach to a study group, which forced me to work through problems out loud and teach others — which forced me to really understand them. On the very next test I scored 20 points higher and finished the course with a strong grade. I learned that when something isn't working, seek feedback and adjust quickly.`, w: `This is an ownership question. They want to see if you blame others or take ownership and seek answers. Own the mistake AND the process to finding the solution.` },
+      { c: 'coaching', q: `"Are you open to role-playing sales scenarios?"`, a: `Yes. I'm on board with anything that will help me be more effective out in the field. Practice is the best way for me to get better at selling, and I like learning from people who may already know what to say.`, w: `When someone says "role play" salespeople often have a weird reaction. It's just a dated way to say practice. Nobody in sales is good just because they exist — the best reps practice. Be willing.` },
+      { c: 'coaching', q: `"What kind of manager helps you succeed?"`, a: `The best managers I've ever worked for set clear expectations and provide feedback on how to reach them. I want to put in the work, but I know coaching will get me there as fast as possible.`, w: `If they are willing to interview someone with no experience, they are willing to coach you. Give them someone willing to be coached.` },
+      { c: 'coaching', q: `"How quickly do you adapt to new environments?"`, a: `Very quickly. New environments are very energizing with so much opportunity to learn new things. I like to learn, observe, ask questions, and engage.`, w: `Sales leaders realize you're going to be drinking from a fire hose. They want people who jump in the deep end and are ready to go.` },
+      { c: 'coaching', q: `"What would you want to learn first in this role?"`, a: `I'd want to hear from you what's important to be successful. I'd like to have a good idea of what to say while prospecting, how to uncover pain in this role, and then how to close deals.`, w: `Almost every salesperson asked this says "product knowledge." That's not entirely wrong, but almost no one says "how to fill out an agreement." When you say "product knowledge," hiring managers hear, "I need to know things before I take action." Show them you have a default to action AND understand there's a sales process.` },
+
+      // Professionalism & Reliability (41-50)
+      { c: 'professional', q: `"How important is punctuality to you?"`, a: `Punctuality is critical. It shows respect and reliability, and it doesn't cost you anything to do for others.`, w: `This is an alignment question to see if you value what they value. It's also an opportunity to show how you'll treat your appointments with prospective customers.` },
+      { c: 'professional', q: `"Describe your communication style."`, a: `Clear, adaptable, and focused on understanding the other person first. I try to listen carefully before responding so I can tailor how I speak to what they need, not just what I want to say.`, w: `Strong communication is one of the most important traits Sales Leaders are looking for today. It's the ability to dig into pain, articulate the customer's problems, and close business. Showing that the first thing you do is seek to understand is step one to winning in sales.` },
+      { c: 'professional', q: `"How do you prepare for important meetings?"`, a: `I research the people and organization involved so I can understand their goals, challenges, and priorities. I define a clear objective for what I want to accomplish and outline the key points or questions that will move the conversation forward. I also try to anticipate likely questions or concerns so I can respond confidently and keep the meeting focused and productive.`, w: `Preparation is key. Managers don't want people on their team who are "winging it" with prospecting and winning deals.` },
+      { c: 'professional', q: `"What does professionalism mean to you?"`, a: `Consistently representing yourself and your organization with integrity, reliability, and respect for others. It includes being prepared, communicating clearly, following through on commitments, and maintaining a positive attitude even in challenging situations. It's about building trust so people feel confident working with you.`, w: `As an outside salesperson your job is essentially the face of the company. They want to know you understand that, and that you know what it takes to be the face of the company.` },
+      { c: 'professional', q: `"How would others describe your reliability?"`, a: `Others would describe me as dependable and consistent because I follow through on what I commit to and communicate early if challenges come up. Whether it's meeting deadlines, showing up prepared, or supporting a team, I take responsibility seriously. People know they can count on me to do what I say I'll do.`, w: `They are looking for alignment between your perception and how others perceive you. They are looking for trustworthiness and whether that's a core value you want others to see in you.` },
+      { c: 'professional', q: `"Have you ever represented a group or organization?"`, a: `Yes — I've served in roles where I was responsible for communicating with others and upholding the organization's standards. In those situations, I made sure to be professional, prepared, and responsive because my actions reflected on the rest of the team. It taught me the importance of accountability and representing something bigger than myself.`, w: `They want to know if you're confident in a public-facing role, and that you're self-aware enough to understand it's not just you you're representing — it's the company.` },
+      { c: 'professional', q: `"How do you build trust quickly?"`, a: `Smiling, being honest, prepared, and respectful is one of the best ways to build trust and rapport quickly with anyone.`, w: `Outside sales is about overcoming immediate objections just because the prospect realized you're a salesperson. It's imperative to build rapport quickly, then turn that rapport into trust so they feel comfortable buying from you.` },
+      { c: 'professional', q: `"How do you handle misunderstandings?"`, a: `I try to address misunderstandings quickly. I want to understand and listen to the other person's perspective before responding. My goal is to align facts, restate the original expectations, and agree on next steps so it doesn't happen again. Staying calm and solution focused helps resolve most issues and keeps people trusting you.`, w: `Sales is a misunderstanding minefield. Interviewing managers are looking for your willingness to own the misunderstanding and quickly resolve it. If this is a risk audit, you just communicated that you'll help fix things — not make them worse.` },
+      { c: 'professional', q: `"How do you stay professional under stress?"`, a: `By focusing on the priorities I can control and keeping my attention on solutions rather than the pressure itself. Communicating with a calm tone, organized approach, and staying respectful helps me make good decisions under pressure.`, w: `They want to know if you're going to crack under the pressure of the job. These leaders know sales is stressful — they want people who thrive under pressure, not crack.` },
+      { c: 'professional', q: `"What would you do if you made a mistake with a client?"`, a: `I've learned that people appreciate when you own your mistakes, so I would take responsibility immediately. Then I would communicate and apologize without making excuses. After that I would focus on correcting the issue as quickly as possible and doing everything I can so it doesn't happen again.`, w: `They are checking your integrity and willingness to own a mistake — even if it wasn't your mistake. Sales and service leaders are often putting out fires made by reps who over promise and under deliver.` },
+
+      // Drive & Career Orientation (51-60)
+      { c: 'drive', q: `"Where do you see yourself in five years?"`, a: `As a high performer who has deep expertise in the role and consistently delivers strong results. I'd also like to be someone the team can rely on — potentially mentoring others or growing into a leadership position as I earn that responsibility.`, w: `Sales leaders appreciate someone whose desire is to put in the time and be great. Leadership opportunities may come sooner than five years, but they want someone who wants to put in the time to master the craft.` },
+      { c: 'drive', q: `"Why start your career in sales?"`, a: `I see starting in sales as critical to business skills like communication, problem solving, resilience, and accountability — all while directly impacting results. I'm also motivated by a performance-based environment where effort and improvement are compensated and recognized.`, w: `Expect a lot of "temperature checks" on why you want this job. Sales leaders want to know you are making this choice intentionally and it's not a fallback. People with a strong "Why" are more likely to stick with it.` },
+      { c: 'drive', q: `"What does success mean to you?"`, a: `Constantly achieving goals while growing and improving. Right now, as I start my career, it's more than just results — it's developing the skills, discipline, and impact that will allow me to perform at a high level through the rest of my career.`, w: `Sales leaders ask this because they're looking to hear your "Why." A paycheck doesn't get you to execute every day — a purpose does.` },
+      { c: 'drive', q: `"How important is advancement to you?"`, a: `Very important. I want to continue to grow, take on more responsibility, and contribute at a higher level in any role. I've always been motivated to earn that progress because I see growth in roles as much of a scorecard as I do compensation.`, w: `This question looks at your ambition. Aligning with the understanding that growth is earned makes you a culture fit.` },
+      { c: 'drive', q: `"What are you most proud of?"`, a: `Pick one example that aligns with what they're looking for: coachability, effort, competitiveness, perseverance. End with the reason you accomplished it — staying disciplined and committed over time.`, w: `Questions like this get asked when they are looking for personal stories that define your internal monologue. They want to know that the voice in your head is always telling you that you can do anything you set your mind to.` },
+      { c: 'drive', q: `"What drives you to improve?"`, a: `I really want to reach my full potential and perform at a high level. I'm also very driven by competition with others and myself. I like seeing measurable progress over time.`, w: `Every manager wants to know what motivates you. An answer that reflects almost every sales culture signals alignment with your drive and their culture.` },
+      { c: 'drive', q: `"How do you measure personal success?"`, a: `Around the goals that I set for myself and the progress I'm making toward achieving them. I like sales as a career because it will compensate me more for achieving those goals.`, w: `This question is about your mindset. They are looking for a performance driven mindset. Highlighting that you have goals — and that money is part of that — aligns perfectly with the incentive they are offering.` },
+      { c: 'drive', q: `"What excites you about business?"`, a: `Strategically solving problems, learning how to be great at sales, and all of the opportunities those two things provide for growing in my career and earning potential.`, w: `Another check-in to see if this is what you want to do and why. Interest and curiosity drive people to engage in their work.` },
+      { c: 'drive', q: `"What would make you leave a job?"`, a: `I'm looking for a role where I can grow, contribute, and earn additional money based on the results of my effort. I would only consider leaving a job if there was a sustained lack of development opportunities or a clear misalignment that prevented me from performing at my best.`, w: `Most managers want to know why you would leave. They are determining their return on investment of time, effort, and energy to bring you up to speed. They don't want to do that and have you walk out the door at the first offer for better base pay.` },
+      { c: 'drive', q: `"How do you handle uncertainty?"`, a: `I focus on what I can control. I try to break challenges into clear, manageable steps. When things are uncertain I stay proactive, ask questions, and keep a positive mindset. That keeps me moving forward even when all the details aren't fully defined.`, w: `You're about to drink from a fire hose for the foreseeable future. They want to know you're tough enough to endure the uncertainty and stick with the job.` },
+
+      // Adaptability & Judgement (61-70)
+      { c: 'adaptability', q: `"Describe a time you had to adjust your approach."`, a: `I was trying to raise money for an organization I volunteered for in college. What I was doing wasn't working. I went to another volunteer who was crushing it and asked them what they were doing. I adjusted my script to be more like theirs, and it worked. I learned that there's no need for me to have an ego when it comes to winning.`, w: `They are looking for flexibility and to see if you're willing to pivot after poor results. Salespeople unwilling to adapt and change are often salespeople looking for their next job.` },
+      { c: 'adaptability', q: `"How do you make decisions with limited information?"`, a: `I gather as much information as I can, consider risks, and rely on those around me so I can choose the best way to keep moving forward. I stay flexible so I can measure results and adjust as quickly as more information is available.`, w: `They know you aren't going to know everything out of the gate. Their goal is to get you in the field contributing to the team's quota as fast as possible — they want to know if you can handle situations where you don't have all the answers.` },
+      { c: 'adaptability', q: `"How do you respond to unexpected challenges?"`, a: `Nothing gets solved by overreacting. I stay calm and try to solve the problem. If I don't know how or can't figure it out quickly, I reach out for help.`, w: `They want to know what your mental map tells you to do when things get tough.` },
+      { c: 'adaptability', q: `"What would you do if a prospect was rude to you?"`, a: `I know not everyone has great days, and I try to keep that in mind. I'd remain calm and professional and focus on being respectful. If the conversation doesn't become productive, I would politely disengage but still try to leave the door open for an opportunity to go back later.`, w: `Sales leaders know it's not easy out in the field. Hearing that you have a way to not internalize rejection — and that you would go back — will impress them.` },
+      { c: 'adaptability', q: `"How do you handle competing priorities?"`, a: `I had to learn to deal with competing priorities in school. I was working, volunteering, studying, and still trying to enjoy college. I learned that prioritizing by urgency and impact helped me keep what mattered most in front of me.`, w: `Busy salespeople are always handling competing priorities. If you don't know how to handle the work, you have a self-induced ceiling. Great salespeople learn how to scale over time.` },
+      { c: 'adaptability', q: `"Have you ever had to work with difficult people?"`, a: `Yes — and I learned to stay focused on staying professional and understanding their perspective. I tried to keep conversations centered around completing the task at hand. That has always helped me keep my working relationships productive.`, w: `This is a drama question. Interpersonal maturity keeps drama to a minimum in a sales culture.` },
+      { c: 'adaptability', q: `"What would you do if you disagreed with your manager?"`, a: `Disagreements happen and that's ok. I would respectfully share my perspective and the reasoning behind it, while hearing from their experience and ultimately respecting their final decision. Once a decision is made, I would fully support it and focus on executing successfully.`, w: `Sales leaders want to know if you respect their authority. Some want to earn it, others demand it from the start. Either way, you want them to understand you'll still communicate and respect their authority.` },
+      { c: 'adaptability', q: `"How do you stay adaptable?"`, a: `I keep an open mind, seek feedback, and I'm always willing to adjust my approach with changing circumstances. My goal is to stay focused on learning and finding solutions, so if I need to alter course, I can. I'm not so concerned with doing it my way if there's another way that wins.`, w: `They are seeing if you're coachable and willing to change if what you're doing isn't working. Change readiness and adaptability are the traits that make someone coachable.` },
+      { c: 'adaptability', q: `"What risks are you comfortable taking?"`, a: `I'm comfortable taking calculated risks as long as the potential benefits outweigh the downsides. I avoid reckless choices, but I'm willing to step outside my comfort zone when it can lead to growth and better results.`, w: `Almost everyone is risk averse, and cold calling isn't easy to just do. The more comfortable you are with taking risks, the more it shows you have the courage to do the work.` },
+      { c: 'adaptability', q: `"How do you recover from setbacks?"`, a: `Not everything works out. That's ok. I take time to reflect on why and what I can learn from it. I try to look at things as an experiment instead of seeing it as pass or fail or tied to me personally. The more feedback I get, the faster I can move forward with what works.`, w: `This is a resilience question to see how you'll handle the rejection that goes with the job. Hearing that you're ok with failure — and you don't tie it to yourself personally — clearly communicates you're the right person for the job.` },
+
+      // Closing Readiness & Fit (71-100)
+      { c: 'closing', q: `"Are you comfortable being evaluated on numbers?"`, a: `Yes — I actually prefer clear metrics because they take away any guess work. If I know the expectations, I can focus on doing the activities needed to hit them and track my progress. Since I am just starting out, I want to learn the process and scripts so I'm ready to attack that number.`, w: `Outside sales roles are brutally measured. Candidates who don't like quota or the pressure that comes with it will struggle. Communicating that you want to attack that number by learning the skill set will assure the sales manager that you're the right candidate.` },
+      { c: 'closing', q: `"How would you describe your work pace?"`, a: `I like staying busy and productive, but I also try to stay organized so speed doesn't stop me from doing things right.`, w: `High-activity roles like outside B2B require sustained output and the ability to keep the chaos to a minimum. They are looking for a controlled default to action while still being able to prioritize.` },
+      { c: 'closing', q: `"What type of feedback motivates you?"`, a: `Specific feedback that I can act on immediately. Knowing exactly what to improve helps me get better faster.`, w: `This is a coachability test and an indicator of whether you are growth-oriented. A sales leader will want to make sure you embrace coaching.` },
+      { c: 'closing', q: `"How do you build rapport quickly?"`, a: `I learned that being interested is the best way to be interesting. If I focus on asking questions and listening carefully, people love talking about themselves and their business. It's what matters to them, so it matters to me.`, w: `B2B selling takes an ability to connect quickly with people. They want to know if you can move from rapport to strategic rapport in the sales process.` },
+      { c: 'closing', q: `"What do you do when you don't know an answer?"`, a: `I'm honest about it. It doesn't make sense to pretend. I've learned that it's ok not to know something as long as you're committed to getting the right information quickly. I'd rather give an answer later than the wrong answer right away.`, w: `This is an integrity question. They have to trust you to reach out when you don't know something. Committing to something you can't do makes you look bad to a customer — but it makes you look worse to your manager when all you had to do was ask.` },
+      { c: 'closing', q: `"How do you maintain your confidence?"`, a: `I understand that I'm not able to prepare for everything, but the more things I'm involved in, the quicker I'm going to learn. My confidence isn't tied to outcomes — it's tied to learning and progress.`, w: `In sales you have to be resilient and not ego-based. You will fail too much to let your ego be affected by outcomes. Tying your confidence to effort, preparation, and progress is fundamental to your success.` },
+      { c: 'closing', q: `"What makes a great teammate?"`, a: `A great teammate is dependable, communicates openly, and supports shared goals. Great teammates help everyone else perform better.`, w: `This question gets you to describe a great teammate, but it's a good indicator of what kind of teammate you'll be. Sales may be individual, but success depends on the people you surround yourself with.` },
+      { c: 'closing', q: `"Are you willing to relocate or travel?"`, a: `Yes — I'm flexible if it supports my career growth and the needs of the role.`, w: `If they see you as someone with the potential to be promoted, those promotions might only be at another location. Now's not the time to get into logistics — just answer the question. (If you're not flexible, be very clear about that and have them define what it might look like.)` },
+      { c: 'closing', q: `"How do you manage stress?"`, a: `I work hard to stay organized and focus on the things I can control. Outside of work I enjoy running, hanging out with my friends, and traveling.`, w: `This is a burnout question. They want to know you have the tools to relieve stress and stay engaged.` },
+      { c: 'closing', q: `"What would frustrate you most in a job?"`, a: `A lack of clear expectations or growth opportunities. I do best when I know what success looks like and what it takes to achieve it.`, w: `Hiring managers want to make sure your answer doesn't go against the core aspects of the role. In sales, expectations are clearly defined — answering this way fits what they're looking for. The second sentence is a reminder that you're willing to put in the work but need direction to win.` },
+      { c: 'closing', q: `"How do you respond to competition?"`, a: `I love competing — it motivates me. Competition with myself and others pushes me to improve and lets me measure myself against high standards.`, w: `Sales culture is built around competition. You don't have to be externally motivated to compete, but sales leaders know that competitive people like to win. They're checking for drive and motivation.` },
+      { c: 'closing', q: `"What do you do when you're bored?"`, a: `I am always looking for something to do. I don't like to not be doing something. When I have free time I try to learn something new or make improvements on what I'm already doing.`, w: `Idle reps don't build pipelines. This question can also be used as a consistency check for alignment with other productivity questions previously asked.` },
+      { c: 'closing', q: `"How would you represent our brand in the field?"`, a: `As a salesperson for any company, I understand I'll be the face of the company — at least when it comes to first impressions. I would be professional, respectful, and consistent with how I show up.`, w: `Sales leaders are concerned about the company's brand reputation. If this interview is a risk audit, tarnishing a brand is one of the biggest risk challenges you pose. Answer this before it's even asked — by how you carry yourself throughout the interview process.` },
+      { c: 'closing', q: `"What role do ethics play in business?"`, a: `Personally and in business, ethics are foundational. Long-term success depends on your trustworthiness, and that trust requires integrity. You can't compromise when it comes to ethics.`, w: `Bad ethics in sales reps create liabilities for managers. Sales managers rely on you to be honest. Taking a hard stance on this shows them how serious you are about not compromising.` },
+      { c: 'closing', q: `"How do you stay positive during tough times?"`, a: `I can only control what I can control. I make sure I'm putting in the work required to succeed and reach my goals. I do my best to improve myself by getting feedback and try to work my way out of tough times.`, w: `Tough times don't last, tough salespeople do. Sales cycles are filled with disappointment — they're checking back in to see if you'll answer this consistently.` },
+      { c: 'closing', q: `"What does accountability mean to you?"`, a: `I own my actions and the results. I don't make excuses for poor results, and I take responsibility for improving.`, w: `Hiring managers want salespeople who own effort and outcomes. They don't want people on their team who are constantly shifting blame for poor performance.` },
+      { c: 'closing', q: `"How do you ensure you follow through on commitments?"`, a: `What was tough for me at first was over-committing. I had to learn to manage my time and the expectations I set for myself with others. I've learned to track tasks carefully and set reminders so nothing falls through the cracks.`, w: `Success in sales happens because of solid follow-up and the ability to not over promise and under deliver. Time and task management are important — they want to see if you understand that.` },
+      { c: 'closing', q: `"What would make you successful in this role?"`, a: `I believe success in any role comes from being persistent, giving consistent effort, and a willingness and eagerness to learn.`, w: `Another question about drive and a check for consistency with other answers. When they ask about you and success, it's always about your drive and internal monologue — answer with what it takes to be successful in the position.` },
+      { c: 'closing', q: `"How do you handle ambiguity?"`, a: `I move forward with the best available information and adjust as I learn more. If it's a question I get asked that I don't know the answer to, I know to go find the answer.`, w: `Field reps often operate without complete direction. Managers are looking to see if you are prone to action — or if unsure situations make you freeze.` },
+      { c: 'closing', q: `"What would your professors say about you?"`, a: `They would say I'm reliable, engaged, and willing to put in the work to get better.`, w: `This is a third-party validation question — trying to understand how you believe others see you. It's a great way to see what your values and relationships are like.` },
+      { c: 'closing', q: `"How do you handle criticism in front of others?"`, a: `No matter what, I stay in control. Staying composed, listening carefully, and focusing on the actual feedback instead of reacting emotionally helps me see things from their perspective. I want to get better — I'm not tied to how.`, w: `Emotional maturity matters, especially in sales where things can be harsher than other environments. Feedback comes quickly and isn't always sandwiched between compliments. They want to know if you can handle the pressure.` },
+      { c: 'closing', q: `"What do you value most in the workplace?"`, a: `A supportive but performance-driven culture with clear expectations and growth opportunities.`, w: `They are looking for cultural fit and to see if you're a retention risk. They want an answer that highlights an understanding of what sales is really like — and that you want what they have to offer.` },
+      { c: 'closing', q: `"How do you celebrate achievements?"`, a: `I like the thrill of winning, but it's usually fleeting. I take a moment to appreciate the win and then reset goals to keep improving.`, w: `Hungry dogs eat. They want to know how you stay hungry and motivated. Sales is about the pursuit of more — they want people who love the pursuit, not the victory lap.` },
+      { c: 'closing', q: `"What keeps you disciplined?"`, a: `I break my goals down from where I want to be 90 days from now, then break that down into months, weeks, and days. That ensures I stay on track.`, w: `Sales is controlled chaos. If you're used to being disciplined in your approach to life, those habits should carry over. Most salespeople aren't great at being disciplined. A personal story on how you learned to be disciplined helps.` },
+      { c: 'closing', q: `"How do you prepare for a major challenge?"`, a: `I learned in college, when it came to big projects, that the best way to approach a major challenge was to research the problem, break it down into manageable steps, and then execute. It also involved a lot of practice when it came to presenting solutions.`, w: `They want to see how you approach planning and if you have a process or mental roadmap. Major challenges in sales are usually added to all your other activities, not in place of them. Being able to digest a challenge as another part of your daily tasks means you understand how to scale your work.` },
+      { c: 'closing', q: `"What's one habit you want to improve?"`, a: `I'm always trying to get better at being more efficient with my time. I am learning that I need to constantly evaluate my schedule and planning to make myself more effective.`, w: `Sales managers will ask this question trying to disguise it, but it's really the "What is one of your weaknesses?" question. Your job is to give them an answer without raising a red flag.` },
+      { c: 'closing', q: `"What would make you proud after your first year here?"`, a: `I'd be proud to become a dependable performer who contributes to the team and is constantly improving.`, w: `This question challenges long-term commitment vs. short-term thinking. They want to make sure you see yourself doing well in the role — not just getting the job.` },
+      { c: 'closing', q: `"Why should we hire you over other candidates?"`, a: `I don't have prior experience, but I'm extremely coachable, I have a strong work ethic, and I'm determined to succeed. I understand that a role like this is fundamental and foundational to a great career.`, w: `They want to see if you can make a strong case and sell yourself. Interviewers ask this to give you an opportunity to demonstrate your instinct to close the deal. Being upfront about lack of experience while re-emphasizing the foundations for success closes the deal.` },
+      { c: 'closing', q: `"Is there anything that would prevent you from succeeding here?"`, a: `No. I'm ready to commit to the work that's required to be successful here, and I'm more than willing to adapt to the demands of the role.`, w: `Sales managers know how to look for objections — and that's what they're looking for here. It's one last attempt to uncover something they don't know about you. A final risk scan before advancing you.` },
+      { c: 'closing', q: `"Do you have any concerns about the role?"`, a: `I don't have any major concerns. I understand that it will be challenging, but that's what makes it appealing to me.`, w: `Another risk scan to see if they've deterred you with the truths about the job. Hesitation won't help you, but saying "major concerns" keeps some control on your side. If they ask about smaller concerns, that's a window to start asking your questions and finishing with your attempt to close the deal.` }
+    ];
+
+    // ========== Render ==========
+    const listEl = document.getElementById('questions-list');
+    const emptyEl = document.getElementById('empty-state');
+    const countEl = document.getElementById('filter-count');
+
+    function escapeHtml(s) {
+      return String(s).replace(/[&<>"']/g, ch => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+      }[ch]));
+    }
+
+    function render() {
+      listEl.innerHTML = QUESTIONS.map((item, idx) => {
+        const num = String(idx + 1).padStart(2, '0');
+        return `
+          <article class="qc" data-cat="${item.c}">
+            <div class="qc-num">${num}</div>
+            <div class="qc-body">
+              <div class="qc-cat">${CATEGORIES[item.c]}</div>
+              <div class="qc-q">${escapeHtml(item.q)}</div>
+              <div class="qc-actions">
+                <button class="qc-toggle" data-target="a-${idx}" type="button">Show Sample Answer</button>
+                <button class="qc-toggle" data-target="w-${idx}" type="button">Why They Ask</button>
+              </div>
+              <div class="qc-reveal" id="a-${idx}">
+                <div class="qc-reveal-label">Sample Answer</div>
+                <div class="qc-reveal-text">${escapeHtml(item.a)}</div>
+              </div>
+              <div class="qc-reveal" id="w-${idx}">
+                <div class="qc-reveal-label">Why They Ask</div>
+                <div class="qc-reveal-text">${escapeHtml(item.w)}</div>
+              </div>
+            </div>
+          </article>
+        `;
+      }).join('');
+
+      // Attach toggle handlers
+      listEl.querySelectorAll('.qc-toggle').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const target = document.getElementById(btn.dataset.target);
+          if (!target) return;
+          const isOpen = target.classList.toggle('is-open');
+          btn.classList.toggle('is-open', isOpen);
+          // Update label
+          if (btn.dataset.target.startsWith('a-')) {
+            btn.textContent = isOpen ? 'Hide Sample Answer' : 'Show Sample Answer';
+          } else {
+            btn.textContent = isOpen ? 'Hide "Why They Ask"' : 'Why They Ask';
+          }
+        });
+      });
+    }
+
+    function applyFilter(filter) {
+      let visible = 0;
+      listEl.querySelectorAll('.qc').forEach(card => {
+        const matches = filter === 'all' || card.dataset.cat === filter;
+        card.classList.toggle('is-hidden', !matches);
+        if (matches) visible++;
+      });
+      countEl.textContent = `${visible} question${visible === 1 ? '' : 's'}`;
+      emptyEl.style.display = visible === 0 ? 'block' : 'none';
+    }
+
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('is-active'));
+        btn.classList.add('is-active');
+        applyFilter(btn.dataset.filter);
+      });
+    });
+
+    render();
+  </script>
+</body>
+</html>
