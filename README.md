@@ -22,7 +22,7 @@ Save these into the `images/` folder using these exact filenames so the site pic
 
 | Filename | Used on | Notes |
 |---|---|---|
-| `images/book-cover.jpg` | index.html hero | The front cover only — crop the wraparound to just the front face. Roughly 600×900px works well. |
+| `images/book-cover.jpg` | index.html hero | 3D book mockup (front cover + spine, on a neutral background with built-in shadow). Roughly 800×1200px works well. |
 | `images/author.jpg` | index.html, about.html | The headshot. Square crop, 600×600px or larger. |
 
 Optional (referenced if you want to add product imagery later):
